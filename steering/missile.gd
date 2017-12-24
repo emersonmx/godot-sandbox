@@ -28,9 +28,10 @@ func _direct(delta):
 func _seek(delta):
 	var mass = 100
 	var position = get_pos()
+	var max_force = speed
 	target_motion = _get_target_motion() * speed
-	steering = target_motion - motion
-	steering = steering.clamped(speed)
+	var force = target_motion - motion
+	steering = force.clamped(max_force)
 	steering = steering / mass
 	motion = (motion + steering).clamped(speed)
 	position += motion
