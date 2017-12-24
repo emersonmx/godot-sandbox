@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://missile.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://MovementVisualizer.gd" type="Script" id=3]
+[ext_resource path="res://legend.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 31.263
+
+[node name="main" type="Node"]
+
+[node name="missile" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 512, 300 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+mode = "seek"
+
+[node name="sprite" type="Sprite" parent="missile"]
+
+texture = ExtResource( 2 )
+
+[node name="shape" type="CollisionShape2D" parent="missile"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="debug" type="Node2D" parent="missile"]
+
+script/script = ExtResource( 3 )
+WIDTH = 4
+MUL = 20
+ARROW_SIZE = 10
+CIRCLE_SIZE = 6
+STEERING_LENGTH = 50
+
+[node name="legend" type="Sprite" parent="."]
+
+transform/pos = Vector2( 10, 10 )
+texture = ExtResource( 4 )
+centered = false
+
+
