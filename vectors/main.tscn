@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+
+[node name="main" type="Node"]
+
+[node name="player" type="Sprite" parent="."]
+
+transform/pos = Vector2( 523.047, 336.137 )
+texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+
+
