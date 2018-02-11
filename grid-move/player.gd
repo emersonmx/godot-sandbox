@@ -12,12 +12,12 @@ var target_position = Vector2()
 var clear_position = Vector2()
 var is_moving = false
 
-var game
+var grid
 
 func _ready():
-    assert(game != null)
-    grid_position = game.grid.world_to_map(position)
-    game.grid.block_cell(grid_position)
+    assert(grid != null)
+    grid_position = grid.world_to_map(position)
+    grid.mark_cell(grid_position)
 
 func _physics_process(delta):
     update_grid_position()
@@ -31,7 +31,7 @@ func move(delta):
     var distance_to_target = position.distance_to(target_position)
     var move_distance = velocity.length()
     if move_distance > distance_to_target:
-        game.grid.clear_cell(clear_position)
+        grid.clear_cell(clear_position)
         velocity = direction * distance_to_target
         is_moving = false
     position += velocity
@@ -41,12 +41,11 @@ func update_grid_position():
         return
 
     var input_direction = get_input_direction()
-
     var new_grid_position = grid_position + input_direction
-    if game.grid.is_cell_empty(new_grid_position):
-        game.grid.block_cell(grid_position)
-        game.grid.block_cell(new_grid_position)
-        target_position = game.grid.map_to_world(new_grid_position, true)
+    if grid.is_cell_empty(new_grid_position):
+        grid.mark_cell(grid_position)
+        grid.mark_cell(new_grid_position)
+        target_position = grid.map_to_world(new_grid_position)
         clear_position = grid_position
         grid_position = new_grid_position
         direction = input_direction.normalized()
