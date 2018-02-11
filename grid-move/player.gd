@@ -12,9 +12,10 @@ var target_position = Vector2()
 var clear_position = Vector2()
 var is_moving = false
 
-onready var game = get_parent()
+var game
 
 func _ready():
+    assert(game != null)
     grid_position = game.grid.world_to_map(position)
     game.grid.block_cell(grid_position)
 
