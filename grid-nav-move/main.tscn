@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://grid_tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://grid.gd" type="Script" id=3]
+[ext_resource path="res://player.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://grid_visualizer.gd" type="Script" id=6]
+
+[node name="game" type="Node" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="grid" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 65536, 0, 0, 65560, 0, 0, 131072, 0, 0, 131096, 0, 0, 196608, 0, 0, 196632, 0, 0, 262144, 0, 0, 262168, 0, 0, 327680, 0, 0, 327704, 0, 0, 393216, 0, 0, 393240, 0, 0, 458752, 0, 0, 458776, 0, 0, 524288, 0, 0, 524312, 0, 0, 589824, 0, 0, 589848, 0, 0, 655360, 0, 0, 655384, 0, 0, 720896, 0, 0, 720920, 0, 0, 786432, 0, 0, 786456, 0, 0, 851968, 0, 0, 851992, 0, 0, 917504, 0, 0, 917528, 0, 0, 983040, 0, 0, 983064, 0, 0, 1048576, 0, 0, 1048600, 0, 0, 1114112, 0, 0, 1114136, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1179672, 0, 0 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Cell" ]
+mark_tile_id = 0
+
+[node name="player" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 32, 32 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="sprite" type="Sprite" parent="player" index="0"]
+
+position = Vector2( 16, 16 )
+scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="grid_visualizer" type="Node2D" parent="." index="2"]
+
+z_index = -1
+script = ExtResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+grid = Vector2( 25, 25 )
+tile_size = Vector2( 32, 32 )
+line_color = Color( 0.0378113, 0.431186, 0.460938, 1 )
+line_width = 1
+
+
