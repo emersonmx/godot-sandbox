@@ -6,9 +6,9 @@
 
 [node name="collision" type="Sprite" parent="." index="0"]
 
+position = Vector2( 16, 16 )
 texture = ExtResource( 1 )
-centered = false
 region_rect = Rect2( 0, 0, 32, 32 )
-_sections_unfolded = [ "Offset", "Region" ]
+_sections_unfolded = [ "Offset" ]
 
 

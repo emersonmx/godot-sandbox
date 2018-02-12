@@ -37,14 +37,12 @@ mark_tile_id = 0
 
 [node name="player" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-position = Vector2( 32, 32 )
+position = Vector2( 48, 48 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="sprite" type="Sprite" parent="player" index="0"]
 
-position = Vector2( 16, 16 )
 scale = Vector2( 0.45, 0.45 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform" ]
