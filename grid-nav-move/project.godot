@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="Grid Move"
+config/name="Grid Nav Move"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 

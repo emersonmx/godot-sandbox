@@ -1,14 +1,41 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://grid_tiles.png" type="Texture" id=1]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( 12, 12, 12, 0, 20, 0, 20, 12, 32, 12, 32, 20, 20, 20, 12, 20, 20, 32, 12, 32, 0, 20, 0, 12 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 4, 5, 6 ), PoolIntArray( 0, 3, 6, 7 ), PoolIntArray( 6, 8, 9, 7 ), PoolIntArray( 0, 7, 10, 11 ) ]
+outlines = [ PoolVector2Array( 12, 0, 20, 0, 20, 12, 32, 12, 32, 20, 20, 20, 20, 32, 12, 32, 12, 20, 0, 20, 0, 12, 12, 12 ) ]
 
 [node name="tiles" type="Node2D"]
 
 [node name="collision" type="Sprite" parent="." index="0"]
 
+position = Vector2( 16, 16 )
 texture = ExtResource( 1 )
-centered = false
+region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
-_sections_unfolded = [ "Offset", "Region" ]
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="navigation" type="Sprite" parent="." index="1"]
+
+position = Vector2( 56, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+_sections_unfolded = [ "Offset", "Region", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="nav" type="NavigationPolygonInstance" parent="navigation" index="0"]
+
+position = Vector2( -16, -16 )
+navpoly = SubResource( 1 )
+enabled = true
 
 

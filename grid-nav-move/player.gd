@@ -5,7 +5,8 @@ const RIGHT = Vector2(1, 0)
 const DOWN = Vector2(0, 1)
 const LEFT = Vector2(-1, 0)
 
-var speed = 200
+export var speed = 200
+
 var direction = Vector2()
 var grid_position = Vector2()
 var target_position = Vector2()
@@ -45,7 +46,7 @@ func update_grid_position():
     if grid.is_cell_empty(new_grid_position):
         grid.mark_cell(grid_position)
         grid.mark_cell(new_grid_position)
-        target_position = grid.map_to_world(new_grid_position)
+        target_position = grid.map_to_world(new_grid_position) + grid.half_cell_size
         clear_position = grid_position
         grid_position = new_grid_position
         direction = input_direction.normalized()
