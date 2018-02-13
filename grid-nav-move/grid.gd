@@ -2,7 +2,7 @@ extends TileMap
 
 export var mark_tile_id = 0
 
-onready var half_cell_size = self.cell_size / 2
+var half_cell_size = self.cell_size / 2
 
 func mark_cell(position):
     set_cellv(position, mark_tile_id)

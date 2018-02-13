@@ -8,8 +8,6 @@ var goal_position
 
 func _ready():
     path = navigation.get_simple_path(position, goal_position, true)
-    for p in path:
-        prints(grid.world_to_map(p - grid.half_cell_size))
 
 func get_input_direction():
     var next_grid_position = _get_next_grid_position()

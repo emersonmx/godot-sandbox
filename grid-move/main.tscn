@@ -40,6 +40,7 @@ mark_tile_id = 0
 position = Vector2( 48, 48 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
+speed = 200
 
 [node name="sprite" type="Sprite" parent="player" index="0"]
 

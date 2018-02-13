@@ -23,6 +23,7 @@ __meta__ = {
 
 [node name="navigation" type="Sprite" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 56, 16 )
 texture = ExtResource( 1 )
 region_enabled = true
