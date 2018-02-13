@@ -5,7 +5,8 @@ const RIGHT = Vector2(1, 0)
 const DOWN = Vector2(0, 1)
 const LEFT = Vector2(-1, 0)
 
-var speed = 200
+export var speed = 200
+
 var direction = Vector2()
 var grid_position = Vector2()
 var target_position = Vector2()
